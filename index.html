@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wearza | AI-Powered E-Wardrobe</title>
+  <meta name="description" content="Wearza is an AI-powered, machine-learning based E-Wardrobe: clothing classification, smart wardrobe organization, outfit recommendation and animated 3D fitting. SLIIT research project R26-IT-053.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#home" class="brand" aria-label="Wearza home">
+      <img src="assets/img/logo.svg" alt="" width="36" height="36">
+      <span>Wearza</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#domain">Domain</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#documents">Documents</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#about">About Us</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow light">Research Project · R26-IT-053 · SLIIT</p>
+      <h1>Your wardrobe,<br><em>finally thinking</em> with you.</h1>
+      <p class="lead">Wearza is an AI-powered, machine-learning based E-Wardrobe. Snap a photo and it tags the garment, tracks every wear and wash, styles outfits for Sri Lanka's humid days and lets you try the look on your own animated 3D avatar.</p>
+      <div class="hero-actions">
+        <a href="#domain" class="btn btn-white">Explore Project</a>
+        <a href="#demo-phone" class="btn btn-ghost">Try the Demo</a>
+        <a href="https://github.com/vidunivinethmazm-lgtm/Wearza-Website" class="btn btn-ghost" target="_blank" rel="noopener" id="githubLink">GitHub Repo</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>85.1%</dt><dd>struggle to pick an outfit</dd></div>
+        <div><dt>59.3%</dt><dd>would use an AI stylist</dd></div>
+        <div><dt>4</dt><dd>AI modules, one app</dd></div>
+      </dl>
+    </div>
+
+    <!-- Interactive phone demo -->
+    <div class="phone-stage" id="demo-phone">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="app">
+          <div class="app-head">
+            <div>
+              <p class="app-hello">Good morning ✿</p>
+              <p class="app-title">My Wardrobe</p>
+            </div>
+            <div class="weather-chip" title="Colombo micro-climate">31°C · 78% RH</div>
+          </div>
+
+          <div class="pick-card" id="pickCard">
+            <div class="pick-top">
+              <span class="tag-mono">TODAY'S PICK</span>
+              <span class="score" id="pickScore">92%</span>
+            </div>
+            <div class="pick-items" id="pickItems"></div>
+            <p class="pick-why" id="pickWhy">Navy shirt harmonizes with beige trousers, fits your professional persona and the cotton breathes in humid weather.</p>
+            <button class="btn-mini" id="wearPick">Wear this outfit</button>
+          </div>
+
+          <div class="filters" role="tablist" aria-label="Filter wardrobe">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="clean">Clean</button>
+            <button class="chip" data-filter="laundry">Laundry</button>
+            <button class="chip" data-filter="forgotten">Forgotten</button>
+          </div>
+          <ul class="closet" id="closet"></ul>
+          <p class="app-foot" id="appFoot">Sample wardrobe · tap a garment to wash it</p>
+        </div>
+      </div>
+      <div class="float-tag t1"><span class="dot" style="--c:var(--mint)"></span>Cotton · Breathable</div>
+      <div class="float-tag t2"><span class="dot" style="--c:var(--rose)"></span>Worn 0× in 47 days</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BACKGROUND ============ -->
+<section class="section" id="background">
+  <div class="wrap split">
+    <div class="split-text">
+      <p class="eyebrow">Background</p>
+      <h2>Too many clothes, too little time to choose.</h2>
+      <p>Fast fashion, e-commerce and smartphone shopping have made clothing cheaper and easier to buy than ever. The result is crowded wardrobes, decision fatigue every morning, repeat purchases and a growing pile of textile waste. Studies suggest most people regularly wear only 20–30% of what they own, while the rest sits forgotten.</p>
+      <p>Digital wardrobe apps exist, but most rely on manual tagging, show only flat images and are built to sell new items rather than help people use what they already have. Advances in computer vision, machine learning, knowledge graphs and 3D visualization now make a genuinely smart wardrobe possible.</p>
+    </div>
+    <div class="photo-mosaic" aria-label="Fashion imagery">
+      <figure class="ph ph1"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=700&q=70" alt="Clothes hanging on a rack" loading="lazy" onerror="this.parentNode.classList.add('fallback');this.remove()"></figure>
+      <figure class="ph ph2"><img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=600&q=70" alt="Shirts on hangers" loading="lazy" onerror="this.parentNode.classList.add('fallback');this.remove()"></figure>
+      <figure class="ph ph3"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=70" alt="Clothing store interior" loading="lazy" onerror="this.parentNode.classList.add('fallback');this.remove()"></figure>
+      <div class="stat-bubble"><b>70–80%</b><span>of clothes are rarely worn</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH PROBLEM / COMPONENTS ============ -->
+<section class="section tint" id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Research Problem</p>
+      <h2>Existing wardrobe apps make people do the work.</h2>
+      <p class="sub">Users tag every item by hand, get recommendations that ignore weather, events and personal style, and never see how an outfit will actually look on them. Wearza answers with four connected AI components.</p>
+    </div>
+
+    <div class="tags-grid">
+      <article class="hangtag" style="--c:var(--plum)">
+        <div class="hole"></div>
+        <p class="tag-mono">COMPONENT 01 · CNN + U²-Net</p>
+        <h3>AI Clothing Classification</h3>
+        <p>Removes the background from a phone photo, then a CNN predicts multiple attributes at once: type, colour, pattern and fabric. Google Trends analysis flags items you already own that are trending.</p>
+        <ul class="tag-list"><li>Background removal</li><li>Multi-attribute tagging</li><li>Trend alerts</li></ul>
+      </article>
+      <article class="hangtag" style="--c:var(--rose)">
+        <div class="hole"></div>
+        <p class="tag-mono">COMPONENT 02 · MongoDB + Analytics</p>
+        <h3>Smart Wardrobe Organization</h3>
+        <p>The data backbone. Tracks wear count and last-worn date, applies laundry logic so dirty items are skipped, indexes items for smart search and rotates forgotten garments back into use.</p>
+        <ul class="tag-list"><li>Wear count tracking</li><li>Laundry logic</li><li>Sustainability rotation</li></ul>
+      </article>
+      <article class="hangtag" style="--c:var(--sun)">
+        <div class="hole"></div>
+        <p class="tag-mono">COMPONENT 03 · Neo4j KG + ResNet</p>
+        <h3>Outfit Recommendation &amp; Matchmaking</h3>
+        <p>A Fashion Knowledge Graph and ResNet visual features score outfits by compatibility, event, persona, micro-climate and sustainability, and explain every suggestion in plain words.</p>
+        <ul class="tag-list"><li>Explainable picks</li><li>Tropical micro-climate</li><li>Stable Diffusion studio</li></ul>
+      </article>
+      <article class="hangtag" style="--c:var(--mint)">
+        <div class="hole"></div>
+        <p class="tag-mono">COMPONENT 04 · Unity + AR Foundation</p>
+        <h3>Animated 3D Outfit Visualization</h3>
+        <p>A selfie and body measurements build a personal 3D avatar. Face texture is UV-mapped, clothes attach to the skeleton, and Mixamo animations show the outfit walking and turning in AR.</p>
+        <ul class="tag-list"><li>Face texture mapping</li><li>Body scaling</li><li>AR try-on</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section class="section impact">
+  <div class="wrap impact-grid">
+    <div>
+      <p class="eyebrow light">The Impact</p>
+      <h2>Wear more of what you own. Buy less of what you don't need.</h2>
+      <p>By automating wardrobe management and explaining every recommendation, Wearza cuts daily decision fatigue, keeps forgotten clothes in rotation and encourages conscious, circular fashion habits.</p>
+    </div>
+    <div class="survey">
+      <p class="tag-mono light">USER SURVEY · WHAT DRIVES OUTFIT CHOICE</p>
+      <div class="bars">
+        <div class="bar-row"><span>Comfort</span><div class="bar"><i style="--w:37%;--c:var(--orchid)"></i></div><b>37.0%</b></div>
+        <div class="bar-row"><span>Occasion</span><div class="bar"><i style="--w:29.6%;--c:var(--rose)"></i></div><b>29.6%</b></div>
+        <div class="bar-row"><span>Personal style</span><div class="bar"><i style="--w:25.9%;--c:var(--sun)"></i></div><b>25.9%</b></div>
+        <div class="bar-row"><span>Weather</span><div class="bar"><i style="--w:3.7%;--c:var(--mint)"></i></div><b>3.7%</b></div>
+        <div class="bar-row"><span>Fashion trends</span><div class="bar"><i style="--w:3.7%;--c:var(--sky)"></i></div><b>3.7%</b></div>
+      </div>
+      <p class="survey-note">40.7% struggle to choose an outfit very often and 44.4% sometimes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOMAIN ============ -->
+<section class="section" id="domain">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Domain</p>
+      <h2>Inside the research</h2>
+    </div>
+    <nav class="domain-nav" aria-label="Domain sections">
+      <a href="#literature">Literature Survey</a>
+      <a href="#gap">Research Gap</a>
+      <a href="#statement">Problem Statement</a>
+      <a href="#objectives">Objectives</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#tech">Technologies Used</a>
+    </nav>
+
+    <!-- Literature -->
+    <div class="block" id="literature">
+      <h3 class="block-title">Literature Survey</h3>
+      <div class="lit-grid">
+        <article class="lit">
+          <span class="lit-num" style="--c:var(--plum)">A</span>
+          <h4>Fashion image classification</h4>
+          <p>DeepFashion and DeepFashion2 established large benchmarks for clothing recognition, detection and attribute prediction. Residual networks (ResNet) and lightweight MobileNet models made accurate CNN classification practical, even in the browser. Segmentation models such as Mask R-CNN and U²-Net isolate garments from cluttered backgrounds, but most classifiers are still trained on clean studio images and predict a single attribute.</p>
+        </article>
+        <article class="lit">
+          <span class="lit-num" style="--c:var(--rose)">B</span>
+          <h4>Digital &amp; smart wardrobe systems</h4>
+          <p>Early smart closets used IoT hardware such as RFID tags, smart hangers and sensor-equipped cupboards to track inventory. These are expensive and offer little styling intelligence. App-based wardrobes remove the hardware but depend on manual tagging, and very few track wear frequency, laundry status or sustainability metrics.</p>
+        </article>
+        <article class="lit">
+          <span class="lit-num" style="--c:var(--sun)">C</span>
+          <h4>Outfit recommendation &amp; knowledge graphs</h4>
+          <p>Compatibility learning with Bi-LSTMs and graph networks (Han et al.), and Hierarchical Fashion Graph Networks for personalized outfits, improved matching. Knowledge graphs (Hogan et al.) and Graph Convolutional Networks add structure and explainability. Most systems still act as black boxes and use temperate four-season weather logic that fails in tropical climates.</p>
+        </article>
+        <article class="lit">
+          <span class="lit-num" style="--c:var(--mint)">D</span>
+          <h4>Virtual try-on &amp; 3D visualization</h4>
+          <p>Diffusion models (Ho et al.) and Stable Diffusion now generate realistic outfit imagery. Face landmark tools such as OpenCV and MediaPipe enable face texture extraction, and Unity with AR Foundation and Mixamo animation brings avatars into real environments. Existing wardrobe apps rarely connect this to the user's own clothes and body.</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Research gap -->
+    <div class="block" id="gap">
+      <h3 class="block-title">Research Gap</h3>
+      <div class="gap-grid">
+        <div class="gap"><b>Manual tagging</b><p>Users must enter type, colour and style by hand, so many abandon wardrobe apps.</p></div>
+        <div class="gap"><b>Clean-image bias</b><p>Classifiers trained on studio datasets lose accuracy on real phone photos with clutter and shadows.</p></div>
+        <div class="gap"><b>No usage intelligence</b><p>Few systems track wear count, laundry status or forgotten items to support sustainable rotation.</p></div>
+        <div class="gap"><b>Black-box, temperate logic</b><p>Recommendations lack explanations and ignore humidity, indoor/outdoor micro-climates and cultural events.</p></div>
+        <div class="gap"><b>Static previews</b><p>Outfits are shown as flat images, not on a personalized, animated avatar.</p></div>
+        <div class="gap"><b>Isolated modules</b><p>Classification, organization, recommendation and visualization are researched separately, never as one platform.</p></div>
+      </div>
+    </div>
+
+    <!-- Problem statement -->
+    <div class="block" id="statement">
+      <h3 class="block-title">Problem Statement</h3>
+      <blockquote class="statement">
+        How can an integrated AI system automatically recognise and organise a person's existing clothes, recommend explainable outfits suited to their events, style and tropical micro-climate, and let them preview those outfits on a personalized animated avatar, so that wardrobe use becomes easier and more sustainable?
+      </blockquote>
+    </div>
+
+    <!-- Objectives -->
+    <div class="block" id="objectives">
+      <h3 class="block-title">Core Objectives</h3>
+      <p class="main-obj"><span class="tag-mono">MAIN OBJECTIVE</span>Develop an AI-powered smart wardrobe that automatically identifies and organizes clothing, recommends context-aware outfits from the user's own wardrobe and visualizes them on an animated 3D avatar, promoting sustainable clothing use.</p>
+      <ol class="obj-list">
+        <li style="--c:var(--plum)"><h4>Automate clothing classification</h4><p>Build background removal and a CNN multi-attribute classifier (type, colour, pattern, fabric) linked to the wardrobe database and Google Trends analysis.</p></li>
+        <li style="--c:var(--rose)"><h4>Organize the wardrobe intelligently</h4><p>Implement wear count tracking, laundry logic, smart search indexing, wardrobe analytics and a sustainability rotation algorithm.</p></li>
+        <li style="--c:var(--sun)"><h4>Recommend explainable outfits</h4><p>Construct a Fashion Knowledge Graph with a dual-layer event and persona engine, micro-climate fabric logic and a Stable Diffusion inspiration studio.</p></li>
+        <li style="--c:var(--mint)"><h4>Visualize outfits on a 3D avatar</h4><p>Create a personalized avatar from a selfie and measurements, attach 3D clothing and animate it in AR with Unity and Mixamo.</p></li>
+      </ol>
+    </div>
+
+    <!-- Methodology -->
+    <div class="block" id="methodology">
+      <h3 class="block-title">Methodology</h3>
+      <p class="block-intro">The system runs in four layers (data acquisition, AI, wardrobe intelligence and visualization), connected through backend APIs and a shared wardrobe database. MongoDB stores items and preferences; Neo4j stores the knowledge graph of items, colours, fabrics, events and style rules.</p>
+
+      <figure class="figure">
+        <img src="assets/img/system-architecture.jpg" alt="Wearza overall system architecture diagram" loading="lazy">
+        <figcaption>Figure 1 · Overall system architecture</figcaption>
+      </figure>
+
+      <div class="method-steps">
+        <div class="mstep"><span>1</span><b>Capture</b><p>User uploads garment photos, profile, selfie and optional body measurements.</p></div>
+        <div class="mstep"><span>2</span><b>Clean &amp; Prepare</b><p>U²-Net / Mask R-CNN removes background; images are resized to 224×224, normalized, de-noised and colour-corrected.</p></div>
+        <div class="mstep"><span>3</span><b>Classify</b><p>CNN (MobileNet / ResNet-50) extracts features and predicts type, colour, pattern and fabric.</p></div>
+        <div class="mstep"><span>4</span><b>Organize</b><p>Metadata, wear count, last-worn date and laundry status are stored and indexed.</p></div>
+        <div class="mstep"><span>5</span><b>Recommend</b><p>Knowledge graph and context engine rank outfits and generate explanations.</p></div>
+        <div class="mstep"><span>6</span><b>Visualize</b><p>The chosen outfit is rendered on the animated 3D avatar in AR.</p></div>
+      </div>
+
+      <div class="formula-row">
+        <div class="formula">
+          <p class="tag-mono">OUTFIT SCORE</p>
+          <p class="eq">Score(O) = α·C(O) + β·E(O) + γ·P(O) + δ·W(O) + λ·S(O)</p>
+          <p class="eq-key">C compatibility · E event suitability · P user preference · W weather &amp; climate · S sustainability priority</p>
+        </div>
+        <div class="formula">
+          <p class="tag-mono">FORGOTTEN ITEM RULE</p>
+          <p class="eq">Forgotten = 1 if WearCount &lt; T<sub>w</sub> and DaysSinceLastWorn &gt; T<sub>d</sub></p>
+          <p class="eq-key">T<sub>w</sub> wear count threshold · T<sub>d</sub> inactivity threshold</p>
+        </div>
+        <div class="formula">
+          <p class="tag-mono">RESIDUAL LEARNING</p>
+          <p class="eq">y = F(x, W<sub>i</sub>) + x</p>
+          <p class="eq-key">ResNet skip connections for deeper, stable feature extraction</p>
+        </div>
+      </div>
+
+      <div class="fig-pair">
+        <figure class="figure">
+          <img src="assets/img/knowledge-graph.jpg" alt="Fashion knowledge graph from clothing item to outfit recommendation" loading="lazy">
+          <figcaption>Figure 2 · Fashion knowledge graph</figcaption>
+        </figure>
+        <div class="fig-stack">
+          <figure class="figure">
+            <img src="assets/img/avatar-pipeline.jpg" alt="Avatar-based animated fitting pipeline" loading="lazy">
+            <figcaption>Figure 3 · Avatar-based animated fitting pipeline</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="assets/img/model-metrics.jpg" alt="Bar chart of model evaluation metrics: accuracy 0.92, precision 0.78, recall 0.68, F1 0.82" loading="lazy">
+            <figcaption>Figure 4 · Model evaluation metrics</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technologies -->
+    <div class="block" id="tech">
+      <h3 class="block-title">Technologies Used</h3>
+      <div class="tech-groups">
+        <div class="tech-group"><p class="tag-mono">FRONTEND</p><div class="pills"><span>React</span><span>Tailwind CSS</span><span>shadcn/ui</span><span>Mobile-first PWA</span></div></div>
+        <div class="tech-group"><p class="tag-mono">BACKEND &amp; DATA</p><div class="pills"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Neo4j</span><span>REST APIs</span></div></div>
+        <div class="tech-group"><p class="tag-mono">AI / ML</p><div class="pills"><span>Python</span><span>TensorFlow.js</span><span>MobileNet</span><span>PyTorch</span><span>ResNet-50</span><span>U²-Net</span><span>Mask R-CNN</span><span>GNN</span><span>Stable Diffusion</span></div></div>
+        <div class="tech-group"><p class="tag-mono">3D &amp; AR</p><div class="pills"><span>Unity</span><span>AR Foundation</span><span>Mixamo</span><span>Blender</span><span>OpenCV</span><span>MediaPipe</span></div></div>
+        <div class="tech-group"><p class="tag-mono">SERVICES</p><div class="pills"><span>Weather API</span><span>Google Calendar</span><span>Google Trends</span><span>Cloud hosting</span><span>Push notifications</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MILESTONES ============ -->
+<section class="section tint" id="milestones">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Milestones</p>
+      <h2>Our research timeline</h2>
+      <p class="sub">Assessments for the 4th-year research module, from proposal to viva.</p>
+    </div>
+    <ol class="timeline">
+      <li class="done"><span class="t-date">2025</span><h4>Project Charter &amp; Topic Assessment</h4><p>Group formed, topic approved and charter submitted.</p><span class="status">Completed</span></li>
+      <li class="done"><span class="t-date">Mar 2026</span><h4>Project Proposal</h4><p>Individual proposal reports for all four components submitted.</p><span class="status">Completed</span></li>
+      <li class="done"><span class="t-date">2026</span><h4>Proposal Presentation</h4><p>Research problem, objectives and methodology presented to the panel.</p><span class="status">Completed</span></li>
+      <li class="done"><span class="t-date">2026</span><h4>Progress Presentation I (50%)</h4><p>Classification model, wardrobe database and knowledge graph prototype.</p><span class="status">Completed</span></li>
+      <li class="now"><span class="t-date">2026</span><h4>Progress Presentation II (90%)</h4><p>Integrated app with recommendations and 3D avatar fitting.</p><span class="status">In progress</span></li>
+      <li><span class="t-date">2026</span><h4>Research Paper &amp; Website</h4><p>Conference paper submission, website and checklist.</p><span class="status">Upcoming</span></li>
+      <li><span class="t-date">2026</span><h4>Final Report &amp; Thesis</h4><p>Individual and group final reports.</p><span class="status">Upcoming</span></li>
+      <li><span class="t-date">2026</span><h4>Final Presentation &amp; Viva</h4><p>Final demonstration of the complete Wearza system.</p><span class="status">Upcoming</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ DOCUMENTS ============ -->
+<section class="section" id="documents">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Documents</p>
+      <h2>Reports &amp; submissions</h2>
+    </div>
+    <div class="doc-grid">
+      <article class="doc">
+        <div class="doc-icon" style="--c:var(--plum)">PDF</div>
+        <h4>Project Proposal Reports</h4>
+        <p>Individual proposals, March 2026.</p>
+        <ul class="doc-files">
+          <li><a href="assets/docs/Proposal_IT22628572_Perera.pdf" target="_blank" rel="noopener">Clothing Classification · Perera A.A.E.A</a></li>
+          <li><a href="assets/docs/Proposal_IT22067142_Mayadunna.pdf" target="_blank" rel="noopener">Smart Wardrobe Organization · Mayadunna R.H.A.M.A</a></li>
+          <li><a href="assets/docs/Proposal_IT22909428_Nisfa.pdf" target="_blank" rel="noopener">Outfit Recommendation · Nisfa N.M.F</a></li>
+          <li><a href="assets/docs/Proposal_IT22170316_Vinethma.pdf" target="_blank" rel="noopener">Outfit Visualization · Vinethma W.S.V</a></li>
+        </ul>
+      </article>
+      <article class="doc">
+        <div class="doc-icon" style="--c:var(--rose)">DOC</div>
+        <h4>Project Charter</h4>
+        <p>Scope, team roles and timeline.</p>
+        <span class="soon">Coming soon</span>
+      </article>
+      <article class="doc">
+        <div class="doc-icon" style="--c:var(--sun)">PAPER</div>
+        <h4>Research Paper</h4>
+        <p>AI-Powered Machine Learning Based E-Wardrobe.</p>
+        <span class="soon">Under review</span>
+      </article>
+      <article class="doc">
+        <div class="doc-icon" style="--c:var(--mint)">FINAL</div>
+        <h4>Final Thesis</h4>
+        <p>Group and individual final reports.</p>
+        <span class="soon">Coming soon</span>
+      </article>
+      <article class="doc">
+        <div class="doc-icon" style="--c:var(--sky)">LOG</div>
+        <h4>Checklists &amp; Logbook</h4>
+        <p>Research logbook and submission checklists.</p>
+        <span class="soon">Coming soon</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRESENTATIONS ============ -->
+<section class="section tint" id="presentations">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">Presentations</p>
+      <h2>Slides from every review</h2>
+    </div>
+    <div class="pres-grid">
+      <article class="pres" style="--c:var(--plum)"><span class="pres-pct">0%</span><h4>Proposal Presentation</h4><p>Problem, gap and proposed solution.</p><a class="btn btn-small is-disabled" aria-disabled="true">Slides coming soon</a></article>
+      <article class="pres" style="--c:var(--rose)"><span class="pres-pct">50%</span><h4>Progress Presentation I</h4><p>Models and early prototype.</p><a class="btn btn-small is-disabled" aria-disabled="true">Slides coming soon</a></article>
+      <article class="pres" style="--c:var(--sun)"><span class="pres-pct">90%</span><h4>Progress Presentation II</h4><p>Integrated system demo.</p><a class="btn btn-small is-disabled" aria-disabled="true">Slides coming soon</a></article>
+      <article class="pres" style="--c:var(--mint)"><span class="pres-pct">100%</span><h4>Final Presentation</h4><p>Complete Wearza showcase.</p><a class="btn btn-small is-disabled" aria-disabled="true">Slides coming soon</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT US ============ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow">About Us</p>
+      <h2>Meet our team</h2>
+    </div>
+
+    <h3 class="team-label">Supervisor</h3>
+    <div class="team-grid sup">
+      <article class="member">
+        <div class="avatar" style="--c1:#6B2BD9;--c2:#C084FC">RS</div>
+        <h4>Mr. N. H. P. Ravi Supunya</h4>
+        <p class="role">Supervisor</p>
+        <p class="aff">Department of Information Technology, SLIIT</p>
+      </article>
+      <!-- Add a co-supervisor by copying the article above -->
+    </div>
+
+    <h3 class="team-label">Research Team</h3>
+    <div class="team-grid">
+      <article class="member">
+        <div class="avatar" style="--c1:#6B2BD9;--c2:#3D8BFD">AP</div>
+        <h4>Perera A.A.E.A</h4>
+        <p class="role">IT22628572</p>
+        <p class="aff">AI Clothing Classification &amp; Trend Analysis</p>
+        <a class="mail" href="mailto:it22628572@my.sliit.lk">it22628572@my.sliit.lk</a>
+      </article>
+      <article class="member">
+        <div class="avatar" style="--c1:#FF5C93;--c2:#C084FC">AM</div>
+        <h4>Mayadunna R.H.A.M.A</h4>
+        <p class="role">IT22067142</p>
+        <p class="aff">Smart Wardrobe Organization</p>
+        <a class="mail" href="mailto:it22067142@my.sliit.lk">it22067142@my.sliit.lk</a>
+      </article>
+      <article class="member">
+        <div class="avatar" style="--c1:#FFB020;--c2:#FF5C93">NF</div>
+        <h4>Nisfa N.M.F</h4>
+        <p class="role">IT22909428</p>
+        <p class="aff">Outfit Recommendation &amp; Matchmaking</p>
+        <a class="mail" href="mailto:it22909428@my.sliit.lk">it22909428@my.sliit.lk</a>
+      </article>
+      <article class="member">
+        <div class="avatar" style="--c1:#19C3A6;--c2:#6B2BD9">SV</div>
+        <h4>Vinethma W.S.V</h4>
+        <p class="role">IT22170316</p>
+        <p class="aff">Outfit Visualization with Animated Fitting</p>
+        <a class="mail" href="mailto:it22170316@my.sliit.lk">it22170316@my.sliit.lk</a>
+      </article>
+    </div>
+    <p class="degree">BSc (Hons) in Information Technology · Specializing in Information Technology · Sri Lanka Institute of Information Technology</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow light">Get in Touch</p>
+      <h2>Questions about Wearza?</h2>
+      <p>We'd love to hear from supervisors, examiners, fellow researchers and anyone curious about smart, sustainable fashion.</p>
+      <ul class="contact-list">
+        <li><span class="tag-mono light">EMAIL</span><span id="contactEmailText">it22628572@my.sliit.lk</span></li>
+        <li><span class="tag-mono light">PROJECT</span>R26-IT-053</li>
+        <li><span class="tag-mono light">LOCATION</span>SLIIT, Malabe, Sri Lanka</li>
+      </ul>
+    </div>
+    <form class="contact-form" id="contactForm" novalidate>
+      <label for="cName">Name</label>
+      <input id="cName" name="name" type="text" required placeholder="Your name">
+      <label for="cEmail">Email</label>
+      <input id="cEmail" name="email" type="email" required placeholder="you@example.com">
+      <label for="cMsg">Message</label>
+      <textarea id="cMsg" name="message" rows="4" required placeholder="Write your message"></textarea>
+      <button type="submit" class="btn btn-plum">Send Message</button>
+      <p class="form-note" id="formNote" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a href="#home" class="brand"><img src="assets/img/logo.svg" alt="" width="30" height="30"><span>Wearza</span></a>
+    <p>© 2026 Wearza · R26-IT-053 · Sri Lanka Institute of Information Technology</p>
+    <a href="#top" class="to-top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
