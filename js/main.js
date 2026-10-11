@@ -1,7 +1,7 @@
 /* Wearza website – interactions
    Edit CONFIG below to change the contact email or GitHub link. */
 const CONFIG = {
-  contactEmail: "it22628572@my.sliit.lk",
+  contactEmail: "wearzaewardrobe@gmail.com",
   githubUrl: "https://github.com/vidunivinethmazm-lgtm/Wearza-Website"
 };
 
