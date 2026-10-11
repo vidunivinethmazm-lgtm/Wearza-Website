@@ -401,3 +401,7 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+.li-link { color: inherit; text-decoration: none; }
+.li-link:hover { color: var(--plum); text-decoration: underline; }
+.mail.li { margin-top: 4px; }
+.brand img { object-fit: contain; border-radius: 8px; }
