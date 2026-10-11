@@ -198,3 +198,19 @@ form.addEventListener("submit", e => {
   window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
   note.textContent = `Your email app should open with the message ready. If it doesn't, write to ${CONFIG.contactEmail}.`;
 });
+
+/* ---------- Demo video ---------- */
+const demoBtn = document.getElementById("demoBtn");
+const demoModal = document.getElementById("demoModal");
+const demoVideo = document.getElementById("demoVideo");
+if (demoBtn && demoModal && demoModal.showModal) {
+  demoBtn.addEventListener("click", e => {
+    e.preventDefault();
+    demoModal.showModal();
+    demoVideo.play().catch(() => {});
+  });
+  const closeDemo = () => demoModal.close();
+  document.getElementById("demoClose").addEventListener("click", closeDemo);
+  demoModal.addEventListener("click", e => { if (e.target === demoModal) closeDemo(); });
+  demoModal.addEventListener("close", () => demoVideo.pause());
+}

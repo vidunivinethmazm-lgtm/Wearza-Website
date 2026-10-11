@@ -405,3 +405,7 @@ p { margin: 0; }
 .li-link:hover { color: var(--plum); text-decoration: underline; }
 .mail.li { margin-top: 4px; }
 .brand img { object-fit: contain; border-radius: 8px; }
+.video-modal { width: min(960px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 16px; background: #000; overflow: visible; }
+.video-modal::backdrop { background: rgba(10, 5, 20, .8); }
+.video-modal video { display: block; width: 100%; max-height: 80vh; border-radius: 16px; }
+.video-close { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border-radius: 50%; border: 0; background: #fff; color: #1e1530; font-size: 1rem; cursor: pointer; }
